@@ -50,7 +50,8 @@ jobs:
 
       - name: Apply MetalLB Configuration
         run: |
-          kubectl apply -f metallb-config.yaml
+          kubectl apply -f manifest/metallb-config.yaml
+
 
       - name: Debug Kubernetes
         run: |
@@ -58,9 +59,9 @@ jobs:
 
       - name: Deploy to Kubernetes
         run: |
-          kubectl apply -f deployment.yaml
-          kubectl apply -f service.yaml
-          kubectl apply -f argocd-app.yaml
+          kubectl apply -f manifest\deployment.yaml
+          kubectl apply -f manifest\service.yaml
+          kubectl apply -f manifest\argocd-app.yaml
        
       - name: Verify Deployment
         run: |
