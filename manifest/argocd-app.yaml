@@ -6,9 +6,12 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/jnayak1482/kind_github_argocd/
+    repoURL: https://github.com/jnayak1482/kind_github_argocd  # ✅ Correct GitHub repo URL
     targetRevision: main
-    path: manifest  # Adjust this path where your Kubernetes YAML files are stored
+    path: manifest  # ✅ Correct directory
+    directory:
+      recurse: false  # ✅ Prevents ArgoCD from reading non-YAML files
+      include: "*.yaml"  # ✅ Only apply Kubernetes YAML files
   destination:
     server: https://kubernetes.default.svc
     namespace: default
