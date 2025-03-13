@@ -59,9 +59,10 @@ jobs:
 
       - name: Deploy to Kubernetes
         run: |
-          kubectl apply -f manifest\deployment.yaml
-          kubectl apply -f manifest\service.yaml
-          kubectl apply -f manifest\argocd-app.yaml
+          kubectl apply -f manifest/deployment.yaml
+          kubectl apply -f manifest/service.yaml
+          kubectl apply -f manifest/argocd-app.yaml
+
        
       - name: Verify Deployment
         run: |
