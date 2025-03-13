@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: react-app
-          image: app  # This should match your local Docker image name
-          imagePullPolicy: Never
+          image: app  # This should match your loaded Kind image
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
