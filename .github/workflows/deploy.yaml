@@ -42,6 +42,15 @@ jobs:
           kubectl create namespace argocd
           kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
           kubectl wait --for=condition=available --timeout=180s -n argocd deployment/argocd-server
+      
+      - name: Install MetalLB
+        run: |
+          kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/main/config/manifests/metallb-native.yaml
+          kubectl wait --for=condition=available --timeout=120s -n metallb-system deployment/controller
+
+      - name: Apply MetalLB Configuration
+        run: |
+          kubectl apply -f metallb-config.yaml
 
       - name: Debug Kubernetes
         run: |
@@ -52,7 +61,7 @@ jobs:
           kubectl apply -f deployment.yaml
           kubectl apply -f service.yaml
           kubectl apply -f argocd-app.yaml
-          kubectl apply -f metallb-config.yaml
+       
       - name: Verify Deployment
         run: |
           kubectl get pods
