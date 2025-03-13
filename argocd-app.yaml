@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/jnayak1482/kind_github_argocd.git
     targetRevision: main
-    path: https://github.com/jnayak1482/kind_github_argocd  # Adjust this path where your Kubernetes YAML files are stored
+    path: https://github.com/jnayak1482/kind_github_argocd/  # Adjust this path where your Kubernetes YAML files are stored
   destination:
     server: https://kubernetes.default.svc
     namespace: default
