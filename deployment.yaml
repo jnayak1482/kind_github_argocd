@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: react-app
-          image: app  # This should match your loaded Kind image
-          imagePullPolicy: IfNotPresent
+          image: jnayak1482/app  # Use your Docker Hub image
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
