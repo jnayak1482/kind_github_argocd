@@ -62,7 +62,7 @@ jobs:
           kubectl apply -f manifest/deployment.yaml
           kubectl apply -f manifest/service.yaml
           kubectl apply -f manifest/argocd-app.yaml
-
+          kubectl apply -f argocd-monitoring.yaml -n argocd
        
       - name: Verify Deployment
         run: |
